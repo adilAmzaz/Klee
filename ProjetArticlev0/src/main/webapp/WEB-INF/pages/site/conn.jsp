@@ -30,7 +30,7 @@
 					</fieldset>
 					
 					<p>
-						<input type="submit" name="btnAjouterCo" value="Connexion"/>
+						<input type="submit" name="btnConnexion" value="Connexion"/>
 					</p>
 					
 					</form>
