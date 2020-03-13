@@ -29,6 +29,10 @@
 					
 					</fieldset>
 					
+					<p>
+						<input type="submit" name="btnAjouterCo" value="Connexion"/>
+					</p>
+					
 					</form>
 					
 </ul>
