@@ -17,13 +17,13 @@
 				<fieldset>
 				<legend>Connexion</legend>
 					<p>
-						<label for="Login">Login : </label>
-						<input type="text" name="txtLogin" id="txtLogin" 
+						<label for="login">Login : </label>
+						<input type="text" name="login" id="login" 
 									 maxlength="30"/>
 					</p>
 					<p>
-						<label for="Mdp">Mot de passe : </label>
-						<input type="text" name="txtMdp" id="txtMdp" 
+						<label for="mdp">Mot de passe : </label>
+						<input type="text" name="mdp" id="mdp" 
 									 maxlength="30"/>
 					</p>
 					
