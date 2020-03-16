@@ -1,15 +1,25 @@
 package controleur;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
+
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,26 +34,43 @@ import model.Utilisateur;
 import repository.ArticleRepository;
 import repository.UtilisateurRepository;
 
+import model.Article;
+import repository.ArticleRepository;
+
 @Controller
 public class SiteControlleur {
+
 
 	@Autowired
 	private ArticleRepository repository;
 	
 	@Autowired
 	private UtilisateurRepository repositoryU;
-	
-	
+
 	@RequestMapping("/acc")
 	public String hello(Model model)
 	{
+		
 		return "site/acc";
 	}
-	@RequestMapping("/biblio")
+	@GetMapping("/biblio")
+	@Transactional
 	public String hello2(Model model)
 	{
+
 		model.addAttribute("articles",repository.findAll());
 		return "site/biblio";
+
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("./applicationContext.xml");
+		ArticleRepository artRepo = context.getBean(ArticleRepository.class);
+		List<Article> liste = artRepo.findAll();
+		model.addAttribute("liste",liste);
+		//System.out.println(liste);
+		for (Article article : liste) {
+			System.out.println(article);
+		}
+		return "site/cartes/index";
+
 	}
 	
 	@GetMapping("/conn")
