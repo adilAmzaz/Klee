@@ -46,8 +46,8 @@ public class SiteControlleur {
 	@Transactional
 	public String hello2(Model model)
 	{
-		model.addAttribute("articles",repository.findAll());
-		return "site/biblio";
+		model.addAttribute("liste",repository.findAll());
+		return "site/cartes/index";
 	}
 	
 	@GetMapping("/conn")
@@ -65,12 +65,12 @@ public class SiteControlleur {
 		
 		if(a.size()>=1)
 		{
-			ht.getSession().setAttribute("pseudo", a.get(0));
-			return "site/reussite";	
+			ht.getSession().setAttribute("utilisateur", a.get(0));
+			return "site/acc";	
 		}
 		else
 		{
-			return "site/echec";
+			return "site/acc";
 		}
 	}
 	
