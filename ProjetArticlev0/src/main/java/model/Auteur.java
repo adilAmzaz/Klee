@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -14,7 +15,7 @@ public class Auteur {
 	@Id
 	private int id;
 
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Article> livres;
 	
 	private String Nom;
