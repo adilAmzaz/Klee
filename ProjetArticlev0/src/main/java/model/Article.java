@@ -2,7 +2,6 @@ package model;
 
 import java.time.LocalDate;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -14,7 +13,7 @@ public class Article {
 	private int id;
 	private String nom;
 	
-	@ManyToOne (fetch = FetchType.EAGER)
+	@ManyToOne
 	private Auteur Auteur;
 	
 	private LocalDate parut;

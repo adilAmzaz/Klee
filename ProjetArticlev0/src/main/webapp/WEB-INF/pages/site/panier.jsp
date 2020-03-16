@@ -9,7 +9,17 @@
 <title>Panier</title>
 </head>
 <body>
-
+<ul>
+		<li><a href="acc">accueil</a></li>
+		<li><a href="biblio">Biblio</a></li>
+		<c:if test="${empty utilisateur}">
+			<li><a href="conn">Connect</a></li>
+			<li><a href="insc">inscrition</a></li>
+		</c:if>
+		<c:if test="${not empty utilisateur}">
+			<li><a href="panier">Panier</a></li>
+		</c:if>
+	</ul>
 
 	<div class="form-group">
 		<form:form action="" method="post" modelAttribute="a">

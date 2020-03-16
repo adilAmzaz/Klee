@@ -1,25 +1,15 @@
 package controleur;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
-
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.ModelAttribute;
-
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,30 +24,24 @@ import model.Utilisateur;
 import repository.ArticleRepository;
 import repository.UtilisateurRepository;
 
-import model.Article;
-import repository.ArticleRepository;
-
 @Controller
 public class SiteControlleur {
-
 
 	@Autowired
 	private ArticleRepository repository;
 	
 	@Autowired
 	private UtilisateurRepository repositoryU;
-
+	
+	
 	@RequestMapping("/acc")
 	public String hello(Model model)
 	{
-		
 		return "site/acc";
 	}
-	@GetMapping("/biblio")
-	@Transactional
+	@RequestMapping("/biblio")
 	public String hello2(Model model)
 	{
-
 
 
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("./applicationContext.xml");
@@ -65,6 +49,7 @@ public class SiteControlleur {
 		List<Article> liste = artRepo.findAll();
 		model.addAttribute("liste",liste);
 		return "site/cartes/index";
+
 
 	}
 	
@@ -83,12 +68,12 @@ public class SiteControlleur {
 		
 		if(a.size()>=1)
 		{
-			ht.getSession().setAttribute("pseudo", a.get(0));
-			return "site/reussite";	
+			ht.getSession().setAttribute("utilisateur", a.get(0));
+			return "site/acc";	
 		}
 		else
 		{
-			return "site/echec";
+			return "site/acc";
 		}
 	}
 	
@@ -128,6 +113,7 @@ public class SiteControlleur {
 	@PostMapping("/insc")
 	public String env(@ModelAttribute(name="utilisateur") Utilisateur utilisateur, Model model)
 	{
+		System.out.println(utilisateur);
 		repositoryU.save(utilisateur);
 		return "site/insc";
 	}	
