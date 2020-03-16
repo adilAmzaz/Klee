@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -10,11 +11,16 @@
 </head>
 <body>
 <ul>
-  <li><a href="acc">accueil</a></li>
-  <li><a href="biblio">Biblio</a></li>
-  <li><a href="conn">Connection</a></li>
-  <li><a href="insc">Inscription</a></li>
-</ul>
+		<li><a href="acc">accueil</a></li>
+		<li><a href="biblio">Biblio</a></li>
+		<c:if test="${empty utilisateur}">
+			<li><a href="conn">Connect</a></li>
+			<li><a href="insc">inscrition</a></li>
+		</c:if>
+		<c:if test="${not empty utilisateur}">
+			<li><a href="panier">Panier</a></li>
+		</c:if>
+	</ul>
 
   <h1>Ajout d'un utilisateur</h1>
 	
@@ -34,7 +40,7 @@
 					</p>
 					<p>
 						<label for="prenom">Prénom : </label>
-						<input type="text" name="txtPrenom" id="txtPrenom" 
+						<input type="text" name="prenom" id="prenom" 
 							placeholder="Jean" maxlength="30"/>
 					</p>
 					
