@@ -36,6 +36,7 @@ public class SiteControlleur {
 	private UtilisateurRepository repositoryU;
 	
 	
+	
 	@RequestMapping("/acc")
 	public String hello(Model model)
 	{
@@ -45,15 +46,8 @@ public class SiteControlleur {
 	@Transactional
 	public String hello2(Model model)
 	{
-
-
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("./applicationContext.xml");
-		ArticleRepository artRepo = context.getBean(ArticleRepository.class);
-		List<Article> liste = artRepo.findAll();
-		model.addAttribute("liste",liste);
-		return "site/cartes/index";
-
-
+		model.addAttribute("articles",repository.findAll());
+		return "site/biblio";
 	}
 	
 	@GetMapping("/conn")
@@ -71,12 +65,12 @@ public class SiteControlleur {
 		
 		if(a.size()>=1)
 		{
-			ht.getSession().setAttribute("utilisateur", a.get(0));
-			return "site/acc";	
+			ht.getSession().setAttribute("pseudo", a.get(0));
+			return "site/reussite";	
 		}
 		else
 		{
-			return "site/acc";
+			return "site/echec";
 		}
 	}
 	
@@ -84,6 +78,7 @@ public class SiteControlleur {
 	public ModelAndView list2(HttpServletRequest ht) {
 		ModelAndView modelAndView = new ModelAndView("site/panier", "articles", repository.findAll());
 		modelAndView.addObject("a", new Article());
+		modelAndView.addObject("nbArticle", 0);
 		if(ht.getSession().getAttribute("Panier")==null)
 		ht.getSession().setAttribute("Panier", new Panier());
 		return modelAndView;
@@ -91,11 +86,12 @@ public class SiteControlleur {
 	
 	
 	@PostMapping("/panier")
-	public ModelAndView aa(@ModelAttribute(name = "a") Article a,HttpServletRequest ht) {
+	public ModelAndView aa(@ModelAttribute(name = "a") Article a,HttpServletRequest ht, @RequestParam("nbArticle") int nbArticle) {
 	
 		Panier p = (Panier) ht.getSession().getAttribute("Panier");
 		ArrayList<Ligne> np = p.getLignes();
-		np.add(new Ligne(repository.findById(a.getId()).get(), 1));
+		np.add(new Ligne(repository.findById(a.getId()).get(), nbArticle));
+		System.out.println(nbArticle);
 		p.setLignes(np);
 		ht.getSession().setAttribute("Panier", p);
 		System.out.println(a);
@@ -116,7 +112,6 @@ public class SiteControlleur {
 	@PostMapping("/insc")
 	public String env(@ModelAttribute(name="utilisateur") Utilisateur utilisateur, Model model)
 	{
-		System.out.println(utilisateur);
 		repositoryU.save(utilisateur);
 		return "site/insc";
 	}	
