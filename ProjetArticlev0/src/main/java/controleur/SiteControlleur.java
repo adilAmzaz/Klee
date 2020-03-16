@@ -85,7 +85,7 @@ public class SiteControlleur {
 	
 		Panier p = (Panier) ht.getSession().getAttribute("Panier");
 		ArrayList<Ligne> np = p.getLignes();
-		np.add(new Ligne(a, 1));
+		np.add(new Ligne(repository.findById(a.getId()).get(), 1));
 		p.setLignes(np);
 		ht.getSession().setAttribute("Panier", p);
 		System.out.println(a);

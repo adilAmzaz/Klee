@@ -28,4 +28,9 @@ public class Ligne {
 		this.qte = qte;
 	}
 	
+	public double getPrixLigne()
+	{
+		return a.getPrix() * qte;
+	}
+	
 }

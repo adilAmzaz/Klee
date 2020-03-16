@@ -12,6 +12,8 @@ import model.Utilisateur;
 
 public interface ArticleRepository extends JpaRepository<Article, Integer> {
 
+//	Article findAllById(int ida);
+
 	
 //	List<Article> findByPrixBetween(double p1, double p2);
 //	List<Article> findByMarqueLike(String param);

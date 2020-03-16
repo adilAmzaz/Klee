@@ -12,4 +12,13 @@ public class Panier {
 	public void setLignes(ArrayList<Ligne> lignes) {
 		this.lignes = lignes;
 	}
+	
+	public double getPrixPanier()
+	{
+		double total = 0;
+		for (Ligne ligne : lignes) {
+			total+=ligne.getPrixLigne();
+		}
+		return total;
+	}
 }
