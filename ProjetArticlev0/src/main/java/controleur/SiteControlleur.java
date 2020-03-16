@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import model.Article;
 import model.User;
 import model.Utilisateur;
 import repository.ArticleRepository;
@@ -67,10 +68,10 @@ public class SiteControlleur {
 		}
 	}
 	
-	@GetMapping("/listearticles")
+	@GetMapping("/panier")
 	public ModelAndView list2() {
 		ModelAndView modelAndView = new ModelAndView("site/panier", "articles", repository.findAll());
-		//modelAndView.addObject("p", new Personne());
+		modelAndView.addObject("a", new Article());
 		return modelAndView;
 	}
 	
@@ -98,8 +99,8 @@ public class SiteControlleur {
 	
 	
 	
-	@GetMapping("/panier")
-	public String panieraccs(Model model, HttpServletRequest ht) {
-		return "/session/sessionadd";
-	}
+//	@GetMapping("/panier")
+//	public String panieraccs(Model model, HttpServletRequest ht) {
+//		return "/session/sessionadd";
+//	}
 }
