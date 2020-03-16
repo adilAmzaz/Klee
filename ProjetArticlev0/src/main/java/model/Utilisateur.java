@@ -1,11 +1,16 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Utilisateur {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType. IDENTITY)
 	private int id;
 	private String pseudo;
 	private String nom;
@@ -21,10 +26,9 @@ public class Utilisateur {
 	}
 	
 	
-	public Utilisateur(int id, String pseudo, String nom, String prenom, String mdp, String mail, String tel,
+	public Utilisateur(String pseudo, String nom, String prenom, String mdp, String mail, String tel,
 			String adresse) {
 		super();
-		this.id = id;
 		this.pseudo = pseudo;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -42,7 +46,7 @@ public class Utilisateur {
 				+ getTel() + ", getAdresse()=" + getAdresse() + "]";
 	}
 
-	@Id
+	
 	public int getId() {
 		return id;
 	}

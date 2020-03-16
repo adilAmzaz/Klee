@@ -1,19 +1,35 @@
 package controleur;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import model.User;
+import model.Utilisateur;
 import repository.ArticleRepository;
+import repository.UtilisateurRepository;
 
 @Controller
 public class SiteControlleur {
 
 	@Autowired
 	private ArticleRepository repository;
+	
+	@Autowired
+	private UtilisateurRepository repositoryU;
+	
 	
 	@RequestMapping("/acc")
 	public String hello(Model model)
@@ -27,14 +43,63 @@ public class SiteControlleur {
 		return "site/biblio";
 	}
 	
-	@RequestMapping("/conn")
-	public String hello3(Model model)
+	@GetMapping("/conn")
+	public String connectionGet(Model model, HttpServletRequest ht)
 	{
+		model.addAttribute("login", "");
+		model.addAttribute("mdp", "");		
 		return "site/conn";
 	}
-	@RequestMapping("/insc")
+	
+	@PostMapping("/conn")
+	public String connectionPost(@RequestParam(name="login") String login,@RequestParam(name="mdp") String mdp,Model model, HttpServletRequest ht)
+	{
+		List<Utilisateur> a = repositoryU.findByPseudoAndMdp(login,mdp);	
+		
+		if(a.size()>=1)
+		{
+			ht.getSession().setAttribute("pseudo", a.get(0));
+			return "site/reussite";	
+		}
+		else
+		{
+			return "site/echec";
+		}
+	}
+	
+	@GetMapping("/listearticles")
+	public ModelAndView list2() {
+		ModelAndView modelAndView = new ModelAndView("site/panier", "articles", repository.findAll());
+		//modelAndView.addObject("p", new Personne());
+		return modelAndView;
+	}
+	
+	
+	
+	
+	
+	@GetMapping("/insc")
 	public String hello4(Model model)
 	{
+		model.addAttribute("utilisateur",new Utilisateur());
 		return "site/insc";
+	}
+	
+	@PostMapping("/insc")
+	public String env(@ModelAttribute(name="utilisateur") Utilisateur utilisateur, Model model)
+	{
+		repositoryU.save(utilisateur);
+		return "site/insc";
+	}	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/panier")
+	public String panieraccs(Model model, HttpServletRequest ht) {
+		return "/session/sessionadd";
 	}
 }

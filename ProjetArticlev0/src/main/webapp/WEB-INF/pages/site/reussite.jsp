@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<ul>
-  <li><a href="acc">accueil</a></li>
-  <li><a href="biblio">Biblio</a></li>
-  <li><a href="conn">Connect</a></li>
-  <li><a href="insc">inscritio</a></li>
-</ul>
-je suis ${pseudo.nom} ${pseudo.prenom}
+<h1>Reussite</h1>
 </body>
 </html>

@@ -10,7 +10,9 @@ import org.springframework.data.repository.query.Param;
 import model.Article;
 import model.Utilisateur;
 
-public interface ArticleRepository extends JpaRepository<Article, Integer> {
+public interface UtilisateurRepository extends JpaRepository<Utilisateur, Integer> {
+
+	List<Utilisateur> findByPseudoAndMdp(String pseudo,String mdp);
 
 	
 //	List<Article> findByPrixBetween(double p1, double p2);
