@@ -14,11 +14,23 @@
 	<div class="form-group">
 		<form:form action="" method="post" modelAttribute="a">
 			<form:select path="id" cssClass="form-control">
-<%-- 				<form:option value="">pas de salle</form:option> --%>
 				<form:options items="${articles}" itemLabel="nom" itemValue="id" />
 			</form:select>
 			<input type="submit">
 		</form:form>
 	</div>
+	
+	
+	<c:forEach items="${Panier.lignes}" var="element"> 
+  <tr>
+  	<c:if test = "${empty element.a.nom}">
+         <td>vide<p>
+      </c:if>
+    <td>${element.a.nom}</td>
+    <td>${element.qte}</td>
+  </tr>
+</c:forEach>
+
+
 </body>
 </html>
