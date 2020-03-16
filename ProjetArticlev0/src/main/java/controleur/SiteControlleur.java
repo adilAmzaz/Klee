@@ -58,17 +58,12 @@ public class SiteControlleur {
 	public String hello2(Model model)
 	{
 
-		model.addAttribute("articles",repository.findAll());
-		return "site/biblio";
+
 
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("./applicationContext.xml");
 		ArticleRepository artRepo = context.getBean(ArticleRepository.class);
 		List<Article> liste = artRepo.findAll();
 		model.addAttribute("liste",liste);
-		//System.out.println(liste);
-		for (Article article : liste) {
-			System.out.println(article);
-		}
 		return "site/cartes/index";
 
 	}
