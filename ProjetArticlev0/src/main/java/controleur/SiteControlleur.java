@@ -47,7 +47,7 @@ public class SiteControlleur {
 	public String hello2(Model model)
 	{
 		model.addAttribute("liste",repository.findAll());
-		return "site/cartes/index";
+		return "site/biblio";
 	}
 	
 	@GetMapping("/conn")

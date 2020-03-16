@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<ul>
+<ul>
 		<li><a href="acc">accueil</a></li>
 		<li><a href="biblio">Biblio</a></li>
 		<c:if test="${empty utilisateur.pseudo}">
@@ -21,8 +22,14 @@
 	</ul>
 
 
+<c:forEach items="${articles}" var="element"> 
+  <tr>
+    <td>${element.id}</td>
+    <td>${element.nom}</td>
+    <td>${element.categorie}</td>
+  </tr>
+</c:forEach>
 
 
-	je suis ${utilisateur.nom} ${utilisateur.prenom}
 </body>
 </html>

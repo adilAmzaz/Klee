@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Entity
 public class Utilisateur {
 	@Id
-	@GeneratedValue(strategy = GenerationType. IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String pseudo;
 	private String nom;
