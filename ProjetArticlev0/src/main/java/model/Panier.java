@@ -20,6 +20,24 @@ public class Panier {
 		this.lignes = lignes;
 	}
 
+	public void AjouterLigne(Ligne l)
+	{
+		boolean trouv = false;
+		for (Ligne ligne : lignes) {
+			System.out.println(ligne);
+			System.out.println(l);
+			if(ligne.getA().getNom().equals(l.getA().getNom()))
+			{
+				ligne.setQte(ligne.getQte()+l.getQte());
+				trouv = true;
+			}
+		}
+		if(!trouv)
+		{
+			this.lignes.add(l);
+		}
+	}
+	
 	public double getPrixPanier() {
 		double total = 0;
 		for (Ligne ligne : lignes) {

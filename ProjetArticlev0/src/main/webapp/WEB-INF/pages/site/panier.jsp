@@ -73,7 +73,7 @@
 						</div>
 						<div class="list-group-item">
 		<label for="nbArticle">Quantite:</label> <input type="number"
-							id="nbArticle" name="nbArticle" min="1" max="10" placeholder="1">
+							id="nbArticle" name="nbArticle" min="1" max="10" placeholder="1" required="required">
 					</div>
 					<div class="list-group-item">
 			<input type="submit">

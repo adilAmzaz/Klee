@@ -92,10 +92,11 @@ public class SiteControlleur {
 	public ModelAndView aa(@ModelAttribute(name = "a") Article a,HttpServletRequest ht, @RequestParam("nbArticle") int nbArticle) {
 	
 		Panier p = (Panier) ht.getSession().getAttribute("Panier");
-		ArrayList<Ligne> np = p.getLignes();
-		np.add(new Ligne(repository.findById(a.getId()).get(), nbArticle));
+		//ArrayList<Ligne> np = p.getLignes();
+		//np.add(new Ligne(repository.findById(a.getId()).get(), nbArticle));
+		p.AjouterLigne(new Ligne(repository.findById(a.getId()).get(), nbArticle));
 		System.out.println(nbArticle);
-		p.setLignes(np);
+		//p.setLignes(np);
 		ht.getSession().setAttribute("Panier", p);
 		System.out.println(a);
 		ModelAndView modelAndView = new ModelAndView("site/panier","Panier", ht.getSession().getAttribute("Panier"));
