@@ -69,7 +69,7 @@
 
         <h1 class="my-4">Shop Name</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
+          <a href="#category1" class="list-group-item">Category 1</a>
           <a href="#" class="list-group-item">Category 2</a>
           <a href="#" class="list-group-item">Category 3</a>
         </div>
@@ -106,7 +106,7 @@
           </a>
         </div>
 
-        <div class="row">
+        <div class="row" >
 
         <c:forEach items="${liste}" var="item">
           <div class="col-lg-4 col-md-6 mb-4">
@@ -147,8 +147,8 @@
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
+  <footer class="py-5 bg-dark" >
+    <div class="container" id="cateogry1">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>
     <!-- /.container -->
