@@ -26,8 +26,8 @@
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
 <style>
-nav {
-padding-bottom: 20px;
+.fixed-top{
+	position:sticky;
 }
 </style>
 </head>
@@ -35,7 +35,7 @@ padding-bottom: 20px;
 <body>
 <!-- Navigation -->
 <div class="row">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<div class="container">
 			<a class="navbar-brand" href="#">Start Bootstrap</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -116,8 +116,18 @@ padding-bottom: 20px;
   </tr>
 </c:forEach>
 			</tbody>
+			 <tfoot>
+        <tr>
+            <td>Total</td>
+  	<td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>${Panier.getPrixPanier()}</td>
+        </tr>
+    </tfoot>
 		</table>
-
+<button type="button" href="biblio" class="btn btn-primary float-right">Valider commande</button>
 	</div>
 	<!-- /.col-lg-9 -->
 
