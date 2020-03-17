@@ -24,6 +24,7 @@ import model.Panier;
 import model.User;
 import model.Utilisateur;
 import repository.ArticleRepository;
+import repository.LigneRepository;
 import repository.UtilisateurRepository;
 
 @Controller
@@ -35,6 +36,8 @@ public class SiteControlleur {
 	@Autowired
 	private UtilisateurRepository repositoryU;
 	
+	@Autowired
+	private LigneRepository repositoryP;
 	
 	
 	@RequestMapping("/acc")
@@ -116,10 +119,26 @@ public class SiteControlleur {
 		return "site/insc";
 	}	
 	
+	@GetMapping("/valide")
+	public String valide(HttpServletRequest ht)
+	{
+		ht.getSession().getAttribute("Panier");
+		return "site/valide";
+	}
 	
-	
-	
-	
+	@PostMapping("/valide")
+	public String commande(HttpServletRequest ht)
+	{
+		Panier p = (Panier) ht.getSession().getAttribute("Panier");
+		Utilisateur u = (Utilisateur) ht.getSession().getAttribute("utilisateur");
+		for (Ligne l : p.getLignes()) {
+			l.setUtilisateur(u);
+			repositoryP.save(l);
+		}
+		
+		ht.getSession().setAttribute("Panier", new Panier());
+		return "site/acc";
+	}
 	
 	
 //	@GetMapping("/panier")

@@ -1,9 +1,13 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,6 +20,7 @@ public class Article {
 	@ManyToOne
 	private Auteur Auteur;
 	
+
 	private LocalDate parut;
 	private String categorie;
 	private String editeur;

@@ -22,6 +22,7 @@
 <style type="text/css">
 <%@include file="vendor/bootstrap/css/bootstrap.min.css" %>
 </style>
+
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
 <style>
@@ -30,19 +31,22 @@
 }
 </style>
 </head>
+
 <body>
 <!-- Navigation -->
+
 <div class="row">
 <div class="col-lg-12">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">Start Bootstrap</a>
+			<a class="navbar-brand" href="acc">Start Bootstrap</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
+
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" href="acc">Accueil</a></li>
 					<li class="nav-item"><a class="nav-link" href="biblio">Biblio</a></li>
@@ -54,35 +58,21 @@
 						<li class="nav-item active"><a class="nav-link" href="panier">Panier</a></li>
 					</c:if>
 				</ul>
+
 			</div>
 		</div>
 	</nav>
 	</div>
 	</div>
-	<!-- Page Content -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3">
-				<h1 class="my-4">Listes des livres</h1>
-				<form:form action="" method="post" modelAttribute="a">
-					<div class="list-group">
-						<div class="list-group-item">
-							<form:select path="id" cssClass="form-control">
-								<form:options items="${articles}" itemLabel="nom" itemValue="id" />
-							</form:select>
-						</div>
-						<div class="list-group-item">
-		<label for="nbArticle">Quantite:</label> <input type="number"
-							id="nbArticle" name="nbArticle" min="1" max="10" placeholder="1">
-					</div>
-					<div class="list-group-item">
-			<input type="submit">
-			</div>
-			</div>
-		</form:form>
+<div class="container">
+	<div class="row">
+	<p>	Félicitation ! ${utilisateur.prenom} ${utilisateur.nom} vous avez commandez les articles suivants :</p>
 	</div>
+	<div class="row">
 	<!-- /.col-lg-3 -->
+
 	<div class="col-lg-9">
+
 		<table class="table">
 			<thead>
 				<tr>
@@ -119,15 +109,16 @@
         </tr>
     </tfoot>
 		</table>
-<form action="valide" method="get">
-    <input type="submit" class="btn btn-primary float-right" value="Valider commande" />
+		</div></div>
+		<div class="row">
+		<form action="valide" method="post">
+    <input type="submit" class="btn btn-primary float-right" value="Payer" />
 </form>
 	</div>
-	<!-- /.col-lg-9 -->
-	</div>
-	<!-- /.row -->
-	</div>
-	<!-- /.container -->
+</div>
+
+
+
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
 		<div class="container">
@@ -136,8 +127,11 @@
 		</div>
 		<!-- /.container -->
 	</footer>
+
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
