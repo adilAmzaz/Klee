@@ -1,33 +1,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
   <title>One Book</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
+ <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 <style type="text/css">
     <%@include file="vendor/bootstrap/css/bootstrap.min.css" %>
-
 </style>
-
-  <!-- Custom styles for this template -->
+ <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
-
 </head>
-
 <body>
-
   <!-- Navigation -->
+​
   <div class="row">
 <div class="col-lg-12">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -56,30 +50,30 @@
 	 
 	</div>
 	</div>
-
+​
   <!-- Page Content -->
   <br/>
   <br/>
   <br/>
-
+​
   <div class="container">
-
+​
     <div class="row">
-
+​
       <div class="col-lg-3">
-
+​
         <h1 class="my-4">Shop Name</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
+          <a href="#category1" class="list-group-item">Category 1</a>
+          <a href="#category2" class="list-group-item">Category 2</a>
+          <a href="#category3" class="list-group-item">Category 3</a>
         </div>
-
+​
       </div>
       <!-- /.col-lg-3 -->
-
+​
       <div class="col-lg-9">
-
+​
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -106,59 +100,115 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-        <div class="row">
-
-        <c:forEach items="${liste}" var="item">
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://127.0.0.1:8887/ProjetArticlev0/src/main/webapp/WEB-INF/images/${item.image }" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">${item.nom} ${item.image}</a>
-                </h4>
-                <h5> ${item.prix}</h5>
-                <p class="card-text">auteur :   ${item.auteur.nom}  ${item.auteur.prenom} ( date naissance ${item.auteur.dateN})</p>
-                <p class="card-text">catégorie :${item.categorie}</p>
-                <p class="card-text">éditeur :  ${item.editeur}</p>
-                <p class="card-text">date d'apparition :${item.parut}</p>
+​
+        <div class="row" >
+​
+        
+			 <div id="category1"> </div>
+			 <c:forEach items="${liste}" var="item">
+				<c:if test="${(item.categorie =='category1') }" >
+					<div class="col-lg-4 col-md-6 mb-4">
+			            <div class="card h-100">
+			              <a href="#"><img class="card-img-top" src="http://127.0.0.1:8887/ProjetArticlev0/src/main/webapp/WEB-INF/images/${item.image }" alt=""></a>
+			              <div class="card-body">
+			                <h4 class="card-title">
+			                  <a href="#">${item.nom} ${item.image }</a>
+			                </h4>
+			                <h5> ${item.prix}</h5>
+			                <p class="card-text">auteur :   ${item.auteur.nom}  ${item.auteur.prenom} ( date naissance ${item.auteur.dateN})</p>
+			                <p class="card-text">catégorie :${item.categorie}</p>
+			                <p class="card-text">éditeur :  ${item.editeur}</p>
+			                <p class="card-text">date d'apparition :${item.parut}</p>
+							
+			              </div>
+			              <div class="card-footer">
+			                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+			              </div>
+			            </div>
+			          </div>
+				</c:if>
+				</c:forEach>
 				
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
+			<div id="category2"> </div>
+			 <c:forEach items="${liste}" var="item">
+				<c:if test="${(item.categorie =='category2') }" >
+					<div class="col-lg-4 col-md-6 mb-4">
+			            <div class="card h-100">
+			              <a href="#"><img class="card-img-top" src="http://127.0.0.1:8887/ProjetArticlev0/src/main/webapp/WEB-INF/images/${item.image }" alt=""></a>
+			              <div class="card-body">
+			                <h4 class="card-title">
+			                  <a href="#">${item.nom} ${item.image }</a>
+			                </h4>
+			                <h5> ${item.prix}</h5>
+			                <p class="card-text">auteur :   ${item.auteur.nom}  ${item.auteur.prenom} ( date naissance ${item.auteur.dateN})</p>
+			                <p class="card-text">catégorie :${item.categorie}</p>
+			                <p class="card-text">éditeur :  ${item.editeur}</p>
+			                <p class="card-text">date d'apparition :${item.parut}</p>
+							
+			              </div>
+			              <div class="card-footer">
+			                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+			              </div>
+			            </div>
+			          </div>
+				</c:if>
+				</c:forEach>
+​
+			 <div id="category3"> </div>
+			 <c:forEach items="${liste}" var="item">
+				<c:if test="${(item.categorie !='category2') and (item.categorie !='category1') }" >
+					<div class="col-lg-4 col-md-6 mb-4">
+			            <div class="card h-100">
+			              <a href="#"><img class="card-img-top" src="http://127.0.0.1:8887/ProjetArticlev0/src/main/webapp/WEB-INF/images/${item.image }" alt=""></a>
+			              <div class="card-body">
+			                <h4 class="card-title">
+			                  <a href="#">${item.nom} ${item.image }</a>
+			                </h4>
+			                <h5> ${item.prix}</h5>
+			                <p class="card-text">auteur :   ${item.auteur.nom}  ${item.auteur.prenom} ( date naissance ${item.auteur.dateN})</p>
+			                <p class="card-text">catégorie :${item.categorie}</p>
+			                <p class="card-text">éditeur :  ${item.editeur}</p>
+			                <p class="card-text">date d'apparition :${item.parut}</p>
+							
+			              </div>
+			              <div class="card-footer">
+			                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+			              </div>
+			            </div>
+			          </div>
+				</c:if>
+				</c:forEach>
+			
+​
           
-
-    		
-		</c:forEach>
-
-
+          
+          
+          
+		
+​
+​
         </div>
         <!-- /.row -->
-
+​
       </div>
       <!-- /.col-lg-9 -->
-
+​
     </div>
     <!-- /.row -->
-
+​
   </div>
   <!-- /.container -->
-
+​
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
+  <footer class="py-5 bg-dark" >
+    <div class="container" id="">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>
     <!-- /.container -->
   </footer>
-
+​
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </body>
-
 </html>
