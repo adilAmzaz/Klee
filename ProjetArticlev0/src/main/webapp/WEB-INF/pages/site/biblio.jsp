@@ -37,19 +37,19 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Accueil
+            <a class="nav-link" href="acc">Accueil
               
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Cartes</a>
+            <a class="nav-link" href="biblio">Cartes</a>
             <span class="sr-only">(current)</span>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Connexion</a>
+            <a class="nav-link" href="conn">Connexion</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Inscription</a>
+            <a class="nav-link" href="insc">Inscription</a>
           </li>
         </ul>
 	  <h2> &nbsp; &nbsp; Bonjour ${utilisateur.nom} ${utilisateur.prenom}</h2>
@@ -71,8 +71,8 @@
         <h1 class="my-4">Shop Name</h1>
         <div class="list-group">
           <a href="#category1" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
+          <a href="#category2" class="list-group-item">Category 2</a>
+          <a href="#category3" class="list-group-item">Category 3</a>
         </div>
 
       </div>
@@ -109,30 +109,88 @@
 
         <div class="row" >
 
-        <c:forEach items="${liste}" var="item">
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://127.0.0.1:8887/ProjetArticlev0/src/main/webapp/WEB-INF/images/${item.image }" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">${item.nom} ${item.image }</a>
-                </h4>
-                <h5> ${item.prix}</h5>
-                <p class="card-text">auteur :   ${item.auteur.nom}  ${item.auteur.prenom} ( date naissance ${item.auteur.dateN})</p>
-                <p class="card-text">catégorie :${item.categorie}</p>
-                <p class="card-text">éditeur :  ${item.editeur}</p>
-                <p class="card-text">date d'apparition :${item.parut}</p>
+        
+			 <div id="category1"> </div>
+			 <c:forEach items="${liste}" var="item">
+				<c:if test="${(item.categorie =='category1') }" >
+					<div class="col-lg-4 col-md-6 mb-4">
+			            <div class="card h-100">
+			              <a href="#"><img class="card-img-top" src="http://127.0.0.1:8887/ProjetArticlev0/src/main/webapp/WEB-INF/images/${item.image }" alt=""></a>
+			              <div class="card-body">
+			                <h4 class="card-title">
+			                  <a href="#">${item.nom} ${item.image }</a>
+			                </h4>
+			                <h5> ${item.prix}</h5>
+			                <p class="card-text">auteur :   ${item.auteur.nom}  ${item.auteur.prenom} ( date naissance ${item.auteur.dateN})</p>
+			                <p class="card-text">catégorie :${item.categorie}</p>
+			                <p class="card-text">éditeur :  ${item.editeur}</p>
+			                <p class="card-text">date d'apparition :${item.parut}</p>
+							
+			              </div>
+			              <div class="card-footer">
+			                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+			              </div>
+			            </div>
+			          </div>
+				</c:if>
+				</c:forEach>
 				
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-          
+			<div id="category2"> </div>
+			 <c:forEach items="${liste}" var="item">
+				<c:if test="${(item.categorie =='category2') }" >
+					<div class="col-lg-4 col-md-6 mb-4">
+			            <div class="card h-100">
+			              <a href="#"><img class="card-img-top" src="http://127.0.0.1:8887/ProjetArticlev0/src/main/webapp/WEB-INF/images/${item.image }" alt=""></a>
+			              <div class="card-body">
+			                <h4 class="card-title">
+			                  <a href="#">${item.nom} ${item.image }</a>
+			                </h4>
+			                <h5> ${item.prix}</h5>
+			                <p class="card-text">auteur :   ${item.auteur.nom}  ${item.auteur.prenom} ( date naissance ${item.auteur.dateN})</p>
+			                <p class="card-text">catégorie :${item.categorie}</p>
+			                <p class="card-text">éditeur :  ${item.editeur}</p>
+			                <p class="card-text">date d'apparition :${item.parut}</p>
+							
+			              </div>
+			              <div class="card-footer">
+			                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+			              </div>
+			            </div>
+			          </div>
+				</c:if>
+				</c:forEach>
 
-    		
-		</c:forEach>
+			 <div id="category3"> </div>
+			 <c:forEach items="${liste}" var="item">
+				<c:if test="${(item.categorie !='category2') and (item.categorie !='category1') }" >
+					<div class="col-lg-4 col-md-6 mb-4">
+			            <div class="card h-100">
+			              <a href="#"><img class="card-img-top" src="http://127.0.0.1:8887/ProjetArticlev0/src/main/webapp/WEB-INF/images/${item.image }" alt=""></a>
+			              <div class="card-body">
+			                <h4 class="card-title">
+			                  <a href="#">${item.nom} ${item.image }</a>
+			                </h4>
+			                <h5> ${item.prix}</h5>
+			                <p class="card-text">auteur :   ${item.auteur.nom}  ${item.auteur.prenom} ( date naissance ${item.auteur.dateN})</p>
+			                <p class="card-text">catégorie :${item.categorie}</p>
+			                <p class="card-text">éditeur :  ${item.editeur}</p>
+			                <p class="card-text">date d'apparition :${item.parut}</p>
+							
+			              </div>
+			              <div class="card-footer">
+			                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+			              </div>
+			            </div>
+			          </div>
+				</c:if>
+				</c:forEach>
+			
+
+          
+          
+          
+          
+		
 
 
         </div>
@@ -149,7 +207,7 @@
 
   <!-- Footer -->
   <footer class="py-5 bg-dark" >
-    <div class="container" id="cateogry1">
+    <div class="container" id="">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>
     <!-- /.container -->
