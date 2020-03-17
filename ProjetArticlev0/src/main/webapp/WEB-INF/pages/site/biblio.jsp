@@ -57,6 +57,10 @@
   </nav>
 
   <!-- Page Content -->
+  <br/>
+  <br/>
+  <br/>
+
   <div class="container">
 
     <div class="row">
@@ -107,13 +111,17 @@
         <c:forEach items="${liste}" var="item">
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <a href="#"><img class="card-img-top" src="http://127.0.0.1:8887/ProjetArticlev0/src/main/webapp/WEB-INF/images/${item.image }" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Item One</a>
+                  <a href="#">${item.nom} ${item.image }</a>
                 </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">${item}</p>
+                <h5> ${item.prix}</h5>
+                <p class="card-text">auteur :   ${item.auteur.nom}  ${item.auteur.prenom} ( date naissance ${item.auteur.dateN})</p>
+                <p class="card-text">catégorie :${item.categorie}</p>
+                <p class="card-text">éditeur :  ${item.editeur}</p>
+                <p class="card-text">date d'apparition :${item.parut}</p>
+				
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

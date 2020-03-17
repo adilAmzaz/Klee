@@ -20,12 +20,37 @@ public class Article {
 	private String categorie;
 	private String editeur;
 	private double prix;
+	private String image = "image.jpg";
 	
 	public Article()
 	{
 		
 	}
+	
+	public Article(int id, String nom, model.Auteur auteur, LocalDate parut, String categorie, String editeur,
+			double prix) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		Auteur = auteur;
+		this.parut = parut;
+		this.categorie = categorie;
+		this.editeur = editeur;
+		this.prix = prix;
+	}
 
+	public Article(int id, String nom, model.Auteur auteur, LocalDate parut, String categorie, String editeur,
+			double prix,String image) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		Auteur = auteur;
+		this.parut = parut;
+		this.categorie = categorie;
+		this.editeur = editeur;
+		this.prix = prix;
+		this.image = image;
+	}
 	public int getId() {
 		return id;
 	}
@@ -82,23 +107,20 @@ public class Article {
 		this.prix = prix;
 	}
 
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	@Override
 	public String toString() {
 		return "Article [getId()=" + getId() + ", getNom()=" + getNom() + ", getAuteur()=" + getAuteur()
 				+ ", getParut()=" + getParut() + ", getCategorie()=" + getCategorie() + ", getEditeur()=" + getEditeur()
-				+ ", getPrix()=" + getPrix() + "]";
-	}
-
-	public Article(int id, String nom, model.Auteur auteur, LocalDate parut, String categorie, String editeur,
-			double prix) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		Auteur = auteur;
-		this.parut = parut;
-		this.categorie = categorie;
-		this.editeur = editeur;
-		this.prix = prix;
+				+ ", getPrix()=" + getPrix() + ", getImage()=" + getImage() + "]";
 	}
 
 	
