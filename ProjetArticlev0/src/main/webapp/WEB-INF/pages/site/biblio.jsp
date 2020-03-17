@@ -52,6 +52,7 @@
             <a class="nav-link" href="#">Inscription</a>
           </li>
         </ul>
+	  <h2> &nbsp; &nbsp; Bonjour ${utilisateur.nom} ${utilisateur.prenom}</h2>
       </div>
     </div>
   </nav>
@@ -118,8 +119,8 @@
                 </h4>
                 <h5> ${item.prix}</h5>
                 <p class="card-text">auteur :   ${item.auteur.nom}  ${item.auteur.prenom} ( date naissance ${item.auteur.dateN})</p>
-                <p class="card-text">catégorie :${item.categorie}</p>
-                <p class="card-text">éditeur :  ${item.editeur}</p>
+                <p class="card-text">catÃ©gorie :${item.categorie}</p>
+                <p class="card-text">Ã©diteur :  ${item.editeur}</p>
                 <p class="card-text">date d'apparition :${item.parut}</p>
 				
               </div>
