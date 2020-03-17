@@ -116,7 +116,7 @@ public class SiteControlleur {
 	public String env(@ModelAttribute(name="utilisateur") Utilisateur utilisateur, Model model)
 	{
 		repositoryU.save(utilisateur);
-		return "site/insc";
+		return "site/acc";
 	}	
 	
 	@GetMapping("/valide")

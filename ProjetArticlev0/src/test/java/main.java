@@ -11,7 +11,7 @@ import repository.AuteurRepository;
 public class main {
 
 	public static void main(String[] args) {
-		//RFCreate();
+		RFCreate();
 	}
 	
 
@@ -34,19 +34,19 @@ public class main {
 		
 		
 		
-		Article p = new Article(0,"Trone de Fer",Tibo,LocalDate.of(1996, Month.AUGUST, 1), "Fantaisie", "Editeur 1", 15);
+		Article p = new Article(0,"Trone de Fer",Tibo,LocalDate.of(1996, Month.AUGUST, 1), "Fantaisie", "Editeur 1", 15,"got.jpg");
 		pr.save(p);
 	
-		Article p1 = new Article(1,"Harry Potter",jk,LocalDate.of(1998, Month.JULY, 2), "Fantaisie", "Editeur 1", 25);
+		Article p1 = new Article(1,"Harry Potter",jk,LocalDate.of(1998, Month.JULY, 2), "Fantaisie", "Editeur 1", 25,"harry.jpg");
 		pr.save(p1);
 		
-		Article p2 = new Article(2,"CA",ks,LocalDate.of(1986, Month.SEPTEMBER, 15), "Horreur", "Editeur 1", 10);
+		Article p2 = new Article(2,"CA",ks,LocalDate.of(1986, Month.SEPTEMBER, 15), "Horreur", "Editeur 1", 10,"CAA.jpg");
 		pr.save(p2);
 		
-		Article p3 = new Article(3,"One Piece",sensei,LocalDate.of(1997, Month.DECEMBER, 24), "Manga", "Editeur 2", 6);
+		Article p3 = new Article(3,"One Piece",sensei,LocalDate.of(1997, Month.DECEMBER, 24), "Manga", "Editeur 2", 6,"OP.jpg");
 		pr.save(p3);
 		
-		Article p4 = new Article(4,"Bleach",tkubo,LocalDate.of(2001, Month.AUGUST, 20), "Manga", "Editeur 2", 6);
+		Article p4 = new Article(4,"Bleach",tkubo,LocalDate.of(2001, Month.AUGUST, 20), "Manga", "Editeur 2", 6,"bleach.jpg");
 		pr.save(p4);
 	
 	
