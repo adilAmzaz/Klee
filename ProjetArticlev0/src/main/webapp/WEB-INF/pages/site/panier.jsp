@@ -35,6 +35,7 @@
 <body>
 <!-- Navigation -->
 <div class="row">
+<div class="col-lg-12">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<div class="container">
 			<a class="navbar-brand" href="#">Start Bootstrap</a>
@@ -60,6 +61,7 @@
 			</div>
 		</div>
 	</nav>
+	</div>
 	</div>
 
 	<!-- Page Content -->
